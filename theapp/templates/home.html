@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Grandes Filmes</title>
+  <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Os Melhores Filmes do Século XXI</h1>
+  <h3>Daniel Lessa Mourão Cuquel</h3>
+
+  <div class="center">
+    <img src="https://nofilmschool.com/media-library/cinema-camera.jpg?id=34059597&width=1245&height=700&quality=90&coordinates=0%2C19%2C0%2C19" width="600" height="400">
+  </div>
+  <p>
+    Quais são os <b>melhores</b> filmes do século XXI? Uma questão complexa e que, se tratando de <u>gostos individuais</u>, cada um terá a própria resposta, como pode ser visto pelo sucesso financeiro dos recentes lançamentos de <i>Barbie </i> e <i>Oppenheimer</i>, sendo difícil encontrar filmes mais diferentes um do outro. Agora, para os fãs em geral, quais foram os melhores filmes desse século? Aqui estão os 10 melhores filmes do século XXI, entre os que tiveram mais de 850.000 classificacões, de acordo com o IMDb:
+  </p>
+  <h4>Top 10 filmes do século XX1</h4>
+  <!-- <ol>
+    <li><i>Batman: O Cavaleiro das Trevas</i> - 9.0</li>
+    <li><i>O Senhor dos Anéis: O Retorno do Rei</i> - 9.0</li>
+    <li><i>A Origem</i> - 8.8</li>
+    <li><i>O Senhor dos Anéis: A Sociedade do Anel</i> - 8.8</li>
+    <li><i>O Senhor dos Anéis: As Duas Torres</i> - 8.8</li>
+    <li><i>Interestelar</i> - 8.7</li>
+    <li><i>O Grande Truque</i> - 8.5</li>
+    <li><i>Os Infiltrados</i> - 8.5</li>
+    <li><i>Django Livre</i> - 8.5</li>
+    <li><i>Whiplash</i> - 8.5</li>
+  </ol> -->
+  <ol>
+    {% for filme in filmes %}
+    <li>
+      {{ filme.titulo }} 
+      <a href="/movies/update/{{ movie.id }}">Atualizar</a>
+      <a href="/movies/delete/{{ movie.id }}">Remover</a>
+    </li>
+    {% endfor %}
+  </ol>
+  <a href="/movies/create">Adicionar outro filme</a>
+    
+  <h4>Que conclusões podemos tirar dessa lista?</h4>
+  <!-- <ul>
+    <li><b>Christopher Nolan é um dos grandes diretores da era moderna do cinema</b>: inquestionavelmente um dos 3 maiores diretores desse século, Nolan domina a lista, dirigindo 4 dos 10 filmes, sendo que adicionaria um quinto, se <i>Oppenheimer</i> tivesse classificações suficientes.</li>
+    <li><b>A trilogia <i>Senhor dos Anéis</i> foi um marco cultural e cinematográfico</b>: até para aqueles que não a viram, como este autor, é indiscutível o sucesso que esses filmes tiveram, ocupando 3 do top 5.</li>
+    <li><b>Pouquíssimo sucesso recente</b>: só 2 desses filmes foram lançados na última década, e nenhum nos últimos 8 anos. É preciso ressaltar que o tempo de lançamento contribui com o número alto de avaliações e que a nostalgia envolvida contribui com a avaliação popular, mas é impressionante, em uma era dominada por serviços de streaming e onde gastos de produção com filmes nunca foram tão altos, como aparentemente filmes recentes não tem alcançado os níveis de apelo de seus antecessores.</li>
+  </ul> -->
+  <ul>
+    {% for opiniao in opinioes %}
+    <li>
+      {{ opiniao.headlineDaOpiniao }} 
+      <a href="/opinions/update/{{ opinion.id }}">Atualizar</a>
+      <a href="/opinions/delete/{{ opinion.id }}">Remover</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a href="/opinions/create">Adicionar outra conclusão</a>
+  
+  
+</body>
+
+</html>

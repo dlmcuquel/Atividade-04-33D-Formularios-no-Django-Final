@@ -1,0 +1,53 @@
+<h4>{{ action }} filme</h4>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Título:</label>
+    <input name='titulo' value='{{ movie.titulo }}'>
+  </div>
+  
+  <div>
+    <label>Diretor:</label>
+    <input name='diretor' value='{{ movie.diretor }}'>
+  </div>
+
+  <div>
+    <label>Gênero:</label>
+    <input name='genero' value='{{ movie.genero }}'>
+  </div>
+
+  <div>
+    <label>Data de lançamento:</label>
+    <input type="date" name='anoLancamento' value='{{ movie.anoLancamento }}'>
+  </div>
+
+  <input type="submit" value="Registrar">
+</form>
+
+<h4>{{ action }} conclusão</h4>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Conclusão:</label>
+    <input name='headlineDaOpiniao' value='{{ opinion.headlineDaOpiniao }}'>
+  </div>
+  
+  <div>
+    <label>Título do filme:</label>
+    <input name='tituloFilme' value='{{ opinion.tituloFilme }}'>
+  </div>
+
+  <div>
+    <label>Diretor:</label>
+    <input name='diretorFilme' value='{{ opinion.diretorFilme }}'>
+  </div>
+
+  <div>
+    <label>Data de lançamento:</label>
+    <input type="date" name='anoLancamentoFilme' value='{{ opinion.anoLancamentoFilme }}'>
+  </div>
+
+  <input type="submit" value="Registrar">
+</form>
